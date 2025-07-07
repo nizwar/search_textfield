@@ -3,6 +3,15 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+/// Enum to define the position of the popup menu relative to the search text field.
+enum PopupMenuPosition {
+  /// The popup menu appears above the search text field.
+  above,
+
+  /// The popup menu appears below the search text field.
+  under,
+}
+
 /// A customizable search text field widget that allows users to input and search for text.
 ///
 /// This widget is a stateful widget that provides a text field for user input and can be
@@ -111,6 +120,7 @@ class SearchTextfield<T> extends StatefulWidget {
   /// user interacts with the search text field.
   final BoxConstraints menuConstraints;
 
+  /// {@macro flutter.widgets.editableText.inputFormatters}
   final List<TextInputFormatter>? inputFormatters;
 
   /// This widget provides a customizable text field for search functionality.

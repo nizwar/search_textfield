@@ -1,7 +1,7 @@
 name: search_textfield
-description: "A new Flutter package project."
+description: "A customizable Flutter widget that provides a search text field with dropdown suggestions. Shows live search results in a dropdown menu as users type."
 version: 0.0.2
-homepage:
+homepage: https://github.com/hangpuan/search_textfield
 
 environment:
   sdk: ^3.6.0
