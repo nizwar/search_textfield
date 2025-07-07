@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 /// A customizable search text field widget that allows users to input and search for text.
 ///
@@ -110,6 +111,8 @@ class SearchTextfield<T> extends StatefulWidget {
   /// user interacts with the search text field.
   final BoxConstraints menuConstraints;
 
+  final List<TextInputFormatter>? inputFormatters;
+
   /// This widget provides a customizable text field for search functionality.
   ///
   /// The `SearchTextfield` widget can be used to create a search input field
@@ -135,6 +138,7 @@ class SearchTextfield<T> extends StatefulWidget {
     this.popupPosition = PopupMenuPosition.under,
     this.popupOffset,
     this.onSubmitted,
+    this.inputFormatters,
   });
 
   @override
@@ -186,6 +190,7 @@ class _SearchTextfieldState<T> extends State<SearchTextfield<T>> {
         maxLength: widget.maxLength,
         onSubmitted: widget.onSubmitted,
         keyboardAppearance: widget.keyboardAppearance,
+        inputFormatters: widget.inputFormatters,
         onChanged: (query) async {
           debouncer?.cancel();
           debouncer = Timer(widget.debounceDuration, () => _overlayEntry!.markNeedsBuild());
